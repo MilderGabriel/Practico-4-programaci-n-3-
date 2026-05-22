@@ -18,7 +18,6 @@ public class ComandoChau extends ComandoPizarra {
         logger.info("Se recibio el comando " + nombre + " del lado del servidor");
         protocolo.getSalida().println(ConfigRed.CMD_OK);
         logger.info(">>> OK");
-
         return true;
     }
 

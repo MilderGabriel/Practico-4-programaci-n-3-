@@ -26,7 +26,6 @@ public class PizarraModelo {
         observado.addPropertyChangeListener(listener);
     }
 
-
     public void agregarFigura(int x, int y, int tamaño) {
         if (formaSeleccionada == null) return;
         Figura figura = new Figura(formaSeleccionada,x,y,tamaño);

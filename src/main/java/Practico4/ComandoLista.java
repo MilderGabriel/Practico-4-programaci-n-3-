@@ -52,15 +52,14 @@ public class ComandoLista extends ComandoPizarra {
         String cmd = protocolo.getEntrada().readLine();
         logger.info("<<< " + cmd);
 
-        if (ConfigRed.CMD_LISTA.equals(cmd)) {
-            enviarLista();
+        enviarLista();
 
-            String ok = protocolo.getEntrada().readLine();
-            logger.info("<<< " + ok);
+        String ok = protocolo.getEntrada().readLine();
+        logger.info("<<< " + ok);
 
-            modelo.setListaCambiada(true);
-        }
+        modelo.setListaCambiada(true);
     }
+
 
     private void enviarLista() throws IOException {
         int cantidad = 0;

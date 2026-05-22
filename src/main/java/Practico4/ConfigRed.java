@@ -19,7 +19,6 @@ public class ConfigRed {
     public static final String REGEX_CIRCULO =
             "^CIRCULO\\s+([0-9]+)\\s+([0-9]+)\\s+([0-9]+)$";
 
-    public static final String REGEX_NUMERO  = "^([0-9]+)$";
     public static final Map<TipoComando, String> expresiones = new HashMap<>();
 
     static {

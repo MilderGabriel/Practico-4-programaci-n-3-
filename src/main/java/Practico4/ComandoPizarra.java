@@ -7,11 +7,7 @@ public abstract class ComandoPizarra {
     protected String           regexPrincipal;
     protected String           nombre;
     protected ProtocoloPizarra protocolo;
-    protected String           primeraLinea;
 
-    public void setPrimeraLinea(String linea) {
-        primeraLinea = linea;
-    }
 
     public abstract boolean atenderComandoSegunProtocolo() throws IOException;
 

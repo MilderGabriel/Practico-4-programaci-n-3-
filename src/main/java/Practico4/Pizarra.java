@@ -93,7 +93,6 @@ public class Pizarra extends JPanel implements PropertyChangeListener {
                 origenY = e.getY();
                 logger.info("Mouse presionado en x=" + origenX + " y=" + origenY);
             }
-
             @Override
             public void mouseReleased(MouseEvent e) {
                 int tamaño = Math.abs(e.getX() - origenX);
@@ -103,7 +102,6 @@ public class Pizarra extends JPanel implements PropertyChangeListener {
                 modelo.agregarFigura(origenX, origenY, tamaño);
             }
         });
-
         ventana.add(botones, BorderLayout.NORTH);
         ventana.add(this, BorderLayout.CENTER);
         ventana.add(entradaSalida, BorderLayout.SOUTH);
@@ -134,12 +132,10 @@ public class Pizarra extends JPanel implements PropertyChangeListener {
                                  JButton botonConectar, JButton botonServidor) {
         String texto = campo.getText().trim().toUpperCase();
         campo.setText("");
-
         if (protocolo == null) {
             respuesta.setText("Respuesta: No conectado");
             return;
         }
-
         try {
             ComandoPizarra cmd = comandoPorTipo(texto);
             if (cmd == null) {
@@ -153,7 +149,6 @@ public class Pizarra extends JPanel implements PropertyChangeListener {
             if (texto.equals(ConfigRed.CMD_CHAU)) {
                 protocolo = null;
                 modelo.setProtocoloPizarra(null);
-                campo.setEnabled(false);
                 botonConectar.setEnabled(true);  botonConectar.setText("Conectar");
                 botonServidor.setEnabled(true);  botonServidor.setText("Ser Servidor");
                 respuesta.setText("Respuesta: Desconectado");

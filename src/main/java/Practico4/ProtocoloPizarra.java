@@ -41,6 +41,14 @@ public class ProtocoloPizarra implements Runnable {
     @Override
     public void run() {
         try {
+            ComandoPizarra primercmd = comandoRecibido();
+            if(!(primercmd instanceof ComandoHola)) {
+                logger.error("El cliente no conoce el protocolo, debe comenzar con HOLA");
+                salida.println("ERROR");
+                cerrarConexion();
+                return;
+            }
+            primercmd.atenderComandoSegunProtocolo();
             boolean sesionTerminada = false;
             while (!sesionTerminada) {
                 ComandoPizarra cmd = comandoRecibido();
@@ -74,7 +82,6 @@ public class ProtocoloPizarra implements Runnable {
                     case Chau   -> new ComandoChau(this);
                     default     -> null;
                 };
-                if (cmd != null) cmd.setPrimeraLinea(linea);
                 return cmd;
             }
         }
